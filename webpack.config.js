@@ -5,7 +5,7 @@ module.exports = [
   {
     entry: './src/js/app.js',
     output: {
-      path: path.join(__dirname, 'public/assets'),
+      path: path.join(__dirname, 'public'),
       filename: 'bundle.js'
     },
     module: {
@@ -27,7 +27,7 @@ module.exports = [
   {
     entry: './src/sass/style.scss',
     output: {
-      path: path.join(__dirname, 'public/assets'),
+      path: path.join(__dirname, 'public'),
       filename: 'style.css'
     },
     module: {
