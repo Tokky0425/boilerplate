@@ -13,17 +13,18 @@ module.exports = [
         test: /\.js$/,
         exclude: /node_modules/,
         use: [{
-          loader: 'babel-loader',
-          options: {
-            presets: ['env']
-          }
+          loader: 'babel-loader'
         }],
       }, {
         enforce: 'pre',
         test: /\.js$/,
         exclude: /node_modules/,
         use: [{
-          loader: 'eslint-loader'
+          loader: 'eslint-loader',
+          options: {
+            fix: true,
+            failOnError: false
+          }
         }],
       }],
     },
