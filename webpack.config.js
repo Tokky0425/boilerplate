@@ -9,16 +9,23 @@ module.exports = [
       filename: 'bundle.js'
     },
     module: {
-      loaders: [
-        {
-          test: /\.js$/,
-          exclude: /node_modules/,
+      rules: [{
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: [{
           loader: 'babel-loader',
           options: {
             presets: ['env']
           }
-        }
-      ]
+        }],
+      }, {
+        enforce: 'pre',
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: [{
+          loader: 'eslint-loader'
+        }],
+      }],
     },
     devServer: {
       contentBase: path.join(__dirname, "public"),
