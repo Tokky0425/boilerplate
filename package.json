@@ -12,7 +12,12 @@
     "presets": "env"
   },
   "eslintConfig": {
-    "extends": "airbnb-base"
+    "extends": "airbnb-base",
+    "globals": {
+      "window": true,
+      "document": true,
+      "alert": true
+    }
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
