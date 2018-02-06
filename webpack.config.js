@@ -1,5 +1,6 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const DEV = process.env.NODE_ENV === 'develop';
 
 module.exports = [
   {
@@ -30,7 +31,8 @@ module.exports = [
     },
     devServer: {
       contentBase: path.join(__dirname, "public"),
-    }
+    },
+    devtool : DEV ? 'cheap-module-eval-source-map' : false
   },
   {
     entry: './src/sass/style.scss',
@@ -47,6 +49,7 @@ module.exports = [
         })
       }]
     },
-    plugins: [ new ExtractTextPlugin('style.css') ]
+    plugins: [ new ExtractTextPlugin('style.css') ],
+    devtool : DEV ? 'cheap-module-eval-source-map' : false
   }
 ];
